@@ -1,0 +1,176 @@
+/* ============================================================
+   style.css — Meus Sites Favoritos | Leila Victoria
+   Tema: Rosa BB (#ffbbcc) + Preto (#111111)
+   ============================================================ */
+
+/* ===== VARIÁVEIS DE COR ===== */
+:root {
+  --rosa:       #ffbbcc;   /* rosa bb principal */
+  --rosa-esc:   #e8899a;   /* rosa mais escuro para hover */
+  --preto:      #111111;   /* preto base do fundo */
+  --preto-card: #1a1a1a;   /* preto dos cards */
+  --branco:     #fff9fb;   /* branco com leve toque rosado */
+  --borda:      #ff80a0;   /* rosa para bordas e detalhes */
+}
+
+/* ===== RESET E BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--preto);
+  color: var(--branco);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  /* Pontilhado decorativo rosa no fundo */
+  background-image: radial-gradient(circle, #ff80a022 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ===== CABEÇALHO ===== */
+header {
+  text-align: center;
+  padding: 3.5rem 1rem 2rem;
+  position: relative;
+}
+
+/* Linha decorativa rosa acima do título */
+header::before {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--rosa);
+  margin: 0 auto 1.2rem;
+  border-radius: 2px;
+}
+
+/* Título principal (h1) do corpo da página */
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  color: var(--rosa);
+  letter-spacing: -1px;
+  line-height: 1.1;
+  /* Efeito de brilho suave */
+  text-shadow: 0 0 40px #ff80a044;
+}
+
+/* Subtítulo com o nome da aluna */
+header p.subtitulo {
+  margin-top: 0.6rem;
+  font-size: 1rem;
+  color: #cc7788;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ===== GRID DE CARDS ===== */
+main {
+  display: grid;
+  /* Colunas responsivas: mínimo 200px, máximo 1 fração */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ===== CARD INDIVIDUAL ===== */
+.card {
+  background: var(--preto-card);
+  border: 1.5px solid #2e2e2e;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Transição suave para o efeito hover */
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+  box-shadow: 0 4px 20px #00000066;
+}
+
+/* Efeito hover: card levita e borda fica rosa */
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--borda);
+  box-shadow: 0 12px 40px #ff80a033;
+}
+
+/* Nome do site — exibido ACIMA da imagem */
+.card .nome-site {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--rosa);
+  padding: 1rem 1rem 0.6rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Wrapper da imagem — mantém proporção 16:9 */
+.card .img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #222;
+}
+
+/* Link que envolve a imagem */
+.card .img-wrap a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Imagem do site */
+.card .img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease, filter 0.35s ease;
+  filter: saturate(0.85);
+}
+
+/* Zoom suave na imagem ao passar o mouse */
+.card:hover .img-wrap img {
+  transform: scale(1.06);
+  filter: saturate(1.1);
+}
+
+/* Área do link textual — exibido ABAIXO da imagem */
+.card .link-area {
+  padding: 0.75rem 1rem 1.1rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* Estilo do link textual */
+.card .link-area a {
+  color: var(--borda);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
+  word-break: break-all;
+}
+
+/* Hover do link textual */
+.card .link-area a:hover {
+  color: var(--rosa);
+  text-decoration: underline;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #664455;
+  font-size: 0.8rem;
+  border-top: 1px solid #1e1e1e;
+}
